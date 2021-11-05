@@ -1,9 +1,7 @@
 class Item {
     constructor(name, price) {
         this.name = name;
-        console.log(name)
         this.price = price;
-        console.log(price)
     }
 }
 class Bill {
@@ -80,6 +78,5 @@ function adicionarItem() {
         mensagemConta = 'Adicionar item à conta';
 
         itemConta.innerHTML = mensagemConta;
-        console.log(precoProduto)
     }
 }
