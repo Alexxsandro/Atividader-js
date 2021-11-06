@@ -1,25 +1,28 @@
 class Item {
     constructor(name, price) {
         this.name = name;
-        console.log(name)
         this.price = price;
-        console.log(price)
     }
 }
+
 class Bill {
     constructor() {
         this.items = [];
         this.total = 0;
     }
+
     addItem = (item) => {
         this.items.push(item);
         this.render();
         this.billTotal();
     };
+
     removeItem = (name) => {
+        
 
       
     };
+
     billTotal = () => {
         var total = this.items.reduce((acumulador, valorAtual) => {
             return acumulador + valorAtual.price
@@ -31,15 +34,17 @@ class Bill {
             comanda.innerHTML = mesage;
         }
         document.getElementById('total').innerHTML = 'R$ ' + total;
+       
     };
+
     render = () => {
         //UNFINISHED
         let billContainer = document.getElementById("items");
-        billContainer.innerHTML = '';
+        billContainer.innerHTML = '';        
 
         this.items.map((item) => {
             let row = document.createElement("tr");
-            let foodName = document.createElement("td");
+            var foodName = document.createElement("td");
             let foodPrice = document.createElement("td");
             foodName.innerHTML = item.name;
             foodPrice.innerHTML = "R$ " + item.price;
@@ -47,9 +52,14 @@ class Bill {
             row.append(foodName);
             row.append(foodPrice);
             billContainer.append(row);
+            row.onclick = function(i){
+               document.getElementById('items').deleteRow(i)
+            }
+
         });
     };
 }
+
 var bill = new Bill();
 
 function init() {
@@ -61,6 +71,7 @@ function printBill() {
     window.print();
     window.location.reload();
 }
+
 function adicionarItem() {
     var nomeProduto = document.getElementById('produto').value;
     precoProduto = document.getElementById('preco').value;
@@ -80,6 +91,6 @@ function adicionarItem() {
         mensagemConta = 'Adicionar item à conta';
 
         itemConta.innerHTML = mensagemConta;
-        console.log(precoProduto)
+        
     }
 }
