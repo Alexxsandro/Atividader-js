@@ -18,9 +18,9 @@ class Bill {
     };
 
     removeItem = (name) => {
-        
 
-      
+
+
     };
 
     billTotal = () => {
@@ -34,13 +34,13 @@ class Bill {
             comanda.innerHTML = mesage;
         }
         document.getElementById('total').innerHTML = 'R$ ' + total;
-       
+
     };
 
     render = () => {
         //UNFINISHED
         let billContainer = document.getElementById("items");
-        billContainer.innerHTML = '';        
+        billContainer.innerHTML = '';
 
         this.items.map((item) => {
             let row = document.createElement("tr");
@@ -52,8 +52,8 @@ class Bill {
             row.append(foodName);
             row.append(foodPrice);
             billContainer.append(row);
-            row.onclick = function(i){
-               document.getElementById('items').deleteRow(i)
+            row.onclick = function (i) {
+                document.getElementById('items').deleteRow(i)
             }
 
         });
@@ -63,6 +63,7 @@ class Bill {
 var bill = new Bill();
 
 function init() {
+    
     bill.render();
     document.getElementsByTagName("body")[0].style.display = "flex";
 }
@@ -91,6 +92,6 @@ function adicionarItem() {
         mensagemConta = 'Adicionar item à conta';
 
         itemConta.innerHTML = mensagemConta;
-        
+
     }
 }
